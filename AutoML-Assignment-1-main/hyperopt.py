@@ -102,7 +102,7 @@ returns list of probability densities for the given samples and mix of distribut
 """
 def mix_pdf(samples, mix):
     means, sds, a,b = mix
-    mean = (b-a)/2
+    mean = (b-a)/2.0
     sd = b-mean
     pdf = truncnorm.pdf(samples, (a-mean)/sd,(b-mean)/sd,loc=mean, scale=sd) #prior
     for mean, sd in zip(means,sds):
@@ -134,7 +134,7 @@ def construct_mix(obs,a,b, log = False):
     return means,sds, a, b
 
 
-def tpe(problem, function_evaluations=150, random_warmup=10, gamma=0.2, **kwargs): #function_evaluations = 150
+def tpe(problem, function_evaluations=150, random_warmup=10, gamma=0.1, **kwargs): #function_evaluations = 150
 
     history = []
     configs = []
