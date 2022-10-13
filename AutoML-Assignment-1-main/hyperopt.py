@@ -84,7 +84,7 @@ def sample_mix(mix):
     sd = b-mean
     samples = [truncnorm.rvs((a-mean)/sd,(b-mean)/sd,loc=mean, scale=sd)] #prior
     try:         
-       result = samples
+       result =  samples
     except ZeroDivisionError:
         result = 0
     for mean, sd in zip(means,sds):
